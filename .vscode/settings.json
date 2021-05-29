@@ -1,0 +1,9 @@
+{
+  "C_Cpp.clang_format_fallbackStyle": "Google",
+  "files.associations": {
+    "glad.h": "c",
+    "stdbool.h": "c",
+    "ios": "cpp",
+    "base.h": "c"
+  }
+}
