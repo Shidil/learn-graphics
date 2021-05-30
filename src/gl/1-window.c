@@ -11,7 +11,7 @@ void processInput(GLFWwindow* window) {
 }
 
 int main() {
-  GLFWwindow* window = init_window(WINDOW_WIDTH, WINDOW_HEIGHT, "Hello Window");
+  GLFWwindow* window = create_window(WINDOW_WIDTH, WINDOW_HEIGHT, "Hello Window");
 
   if (window == NULL) {
     printf("GL Context creation failed. No window created");

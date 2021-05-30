@@ -1,9 +1,13 @@
 {
   "C_Cpp.clang_format_fallbackStyle": "Google",
   "files.associations": {
+    "*.vert": "glsl",
     "glad.h": "c",
     "stdbool.h": "c",
     "ios": "cpp",
-    "base.h": "c"
+    "base.h": "c",
+    "sokol_glue.h": "c",
+    "sokol_app.h": "c",
+    "sokol_gfx.h": "c"
   }
 }

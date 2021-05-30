@@ -1,15 +1,19 @@
 cmake_minimum_required(VERSION 2.8.12)
 project (graphics)
 
+set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 11)
+
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-missing-field-initializers")
 
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
-
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-missing-field-initializers")
 add_subdirectory(libs/glfw)
 
-#Bring the headers, such as Student.h into the project
+#Bring in the headers
+include_directories(libs)
 include_directories(libs/glad/include)
 
 #The file(GLOB...) allows for wildcard additions:
