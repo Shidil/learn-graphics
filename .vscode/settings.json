@@ -8,6 +8,8 @@
     "base.h": "c",
     "sokol_glue.h": "c",
     "sokol_app.h": "c",
-    "sokol_gfx.h": "c"
+    "sokol_gfx.h": "c",
+    "*.tcc": "c",
+    "math.h": "c"
   }
 }
