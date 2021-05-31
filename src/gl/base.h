@@ -2,6 +2,8 @@
 #include <GLFW/glfw3.h>
 #include <stdio.h>
 
+#include "files.h"
+
 #define WINDOW_HEIGHT 500
 #define WINDOW_WIDTH 500
 
@@ -116,6 +118,20 @@ shader_pgm create_shader_pgm(const char* vert_source, const char* frag_source) {
   glDeleteShader(fragment_shader);
 
   return shader_program;
+}
+
+shader_pgm load_shader_from_file(const char* vert_shader_file,
+                                 const char* frag_shader_file) {
+  File vert_file = read_from_file(vert_shader_file);
+  File frag_file = read_from_file(frag_shader_file);
+
+  // TODO check errors and validate
+
+  shader_pgm shader = create_shader_pgm(vert_file.contents, frag_file.contents);
+  unload_file(vert_file);
+  unload_file(frag_file);
+
+  return shader;
 }
 
 shader_pgm get_basic_shader() {
