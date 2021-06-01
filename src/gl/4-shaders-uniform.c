@@ -1,13 +1,8 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <math.h>
 
 #include "base.h"
-
-void processInput(GLFWwindow* window) {
-  if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
-    glfwSetWindowShouldClose(window, 1);
-  }
-}
 
 int main(void) {
   GLFWwindow* window =
@@ -15,7 +10,7 @@ int main(void) {
 
   // resources
   shader_pgm shader = load_shader_from_file("../shaders/basic-vertex.glsl",
-                                            "../shaders/basic-fragment.glsl");
+                                            "../shaders/fill-fragment.glsl");
 
   // Data for drawing
   float vertices[] = {
@@ -57,14 +52,18 @@ int main(void) {
   // Main loop
   while (!glfwWindowShouldClose(window)) {
     // input handling
-    processInput(window);
 
     // draw stuff
+    float time = glfwGetTime();
+    float green_value = (sin(time) / 2.0f) + 0.5f;
+    int color_uniform_location = glGetUniformLocation(shader, "fillColor");
+
     glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 
     // Set shader to be used
     glUseProgram(shader);
+    glUniform4f(color_uniform_location, 0.0f, green_value, 0.0f, 1.0f);
 
     // Draw triangle
     glBindVertexArray(VAO);
