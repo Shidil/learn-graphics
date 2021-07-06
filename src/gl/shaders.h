@@ -1,7 +1,10 @@
+// clang-format off
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 #include "files.h"
+
+// clang-format on
 
 typedef unsigned int shader;
 typedef unsigned int shader_pgm;
